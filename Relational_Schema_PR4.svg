@@ -1,0 +1,127 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000">
+  <defs>
+    <style>
+      .table { fill: #fff; stroke: #52677f; stroke-width: 2; }
+      .head { fill: #315f91; }
+      .ht { fill: white; font: bold 20px Arial; }
+      .field { fill: #263b52; font: 17px Arial; }
+      .tag { fill: #dce9f7; }
+      .tagtext { fill: #244f91; font: bold 13px Arial; }
+      .rel { stroke: #52677f; stroke-width: 3; fill: none; }
+      .label { fill: #394f68; font: 15px Arial; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#52677f"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="1000" fill="#f4f6fa"/>
+  <text x="700" y="48" text-anchor="middle" font-family="Arial" font-size="29" font-weight="bold" fill="#172b45">
+    РЕЛЯЦІЙНА СХЕМА БАЗИ ДАНИХ БІБЛІОТЕКИ
+  </text>
+  <text x="700" y="78" text-anchor="middle" font-family="Arial" font-size="16" fill="#64748b">
+    Практична робота №4. Первинні та зовнішні ключі
+  </text>
+
+  <!-- PUBLISHER -->
+  <g transform="translate(45 145)">
+    <rect class="table" width="300" height="165" rx="9"/>
+    <path class="head" d="M9 0 H291 Q300 0 300 9 V43 H0 V9 Q0 0 9 0"/>
+    <text class="ht" x="150" y="29" text-anchor="middle">PUBLISHER</text>
+    <text class="field" x="18" y="72">publisher_id</text>
+    <rect class="tag" x="235" y="53" width="50" height="25" rx="5"/>
+    <text class="tagtext" x="260" y="71" text-anchor="middle">PK</text>
+    <text class="field" x="18" y="108">name</text>
+    <text class="field" x="18" y="143">city</text>
+  </g>
+
+  <!-- BOOK -->
+  <g transform="translate(550 145)">
+    <rect class="table" width="300" height="235" rx="9"/>
+    <path class="head" d="M9 0 H291 Q300 0 300 9 V43 H0 V9 Q0 0 9 0"/>
+    <text class="ht" x="150" y="29" text-anchor="middle">BOOK</text>
+    <text class="field" x="18" y="72">book_id</text>
+    <rect class="tag" x="235" y="53" width="50" height="25" rx="5"/>
+    <text class="tagtext" x="260" y="71" text-anchor="middle">PK</text>
+    <text class="field" x="18" y="108">title</text>
+    <text class="field" x="18" y="144">isbn (UNIQUE)</text>
+    <text class="field" x="18" y="180">publication_year</text>
+    <text class="field" x="18" y="216">publisher_id (FK)</text>
+  </g>
+
+  <!-- COPY -->
+  <g transform="translate(1050 145)">
+    <rect class="table" width="300" height="235" rx="9"/>
+    <path class="head" d="M9 0 H291 Q300 0 300 9 V43 H0 V9 Q0 0 9 0"/>
+    <text class="ht" x="150" y="29" text-anchor="middle">COPY</text>
+    <text class="field" x="18" y="72">copy_id (PK)</text>
+    <text class="field" x="18" y="108">inventory_number (UNIQUE)</text>
+    <text class="field" x="18" y="144">condition</text>
+    <text class="field" x="18" y="180">status</text>
+    <text class="field" x="18" y="216">book_id (FK)</text>
+  </g>
+
+  <!-- AUTHOR -->
+  <g transform="translate(45 540)">
+    <rect class="table" width="300" height="165" rx="9"/>
+    <path class="head" d="M9 0 H291 Q300 0 300 9 V43 H0 V9 Q0 0 9 0"/>
+    <text class="ht" x="150" y="29" text-anchor="middle">AUTHOR</text>
+    <text class="field" x="18" y="72">author_id (PK)</text>
+    <text class="field" x="18" y="108">full_name</text>
+    <text class="field" x="18" y="143">birth_date</text>
+  </g>
+
+  <!-- BOOKAUTHOR -->
+  <g transform="translate(550 540)">
+    <rect class="table" width="300" height="130" rx="9"/>
+    <path fill="#74569a" d="M9 0 H291 Q300 0 300 9 V43 H0 V9 Q0 0 9 0"/>
+    <text class="ht" x="150" y="29" text-anchor="middle">BOOKAUTHOR</text>
+    <text class="field" x="18" y="76">book_id (PK, FK)</text>
+    <text class="field" x="18" y="112">author_id (PK, FK)</text>
+  </g>
+
+  <!-- READER -->
+  <g transform="translate(1050 540)">
+    <rect class="table" width="300" height="200" rx="9"/>
+    <path class="head" d="M9 0 H291 Q300 0 300 9 V43 H0 V9 Q0 0 9 0"/>
+    <text class="ht" x="150" y="29" text-anchor="middle">READER</text>
+    <text class="field" x="18" y="72">reader_id (PK)</text>
+    <text class="field" x="18" y="108">full_name</text>
+    <text class="field" x="18" y="144">phone</text>
+    <text class="field" x="18" y="180">email (UNIQUE)</text>
+  </g>
+
+  <!-- LOAN -->
+  <g transform="translate(1050 800)">
+    <rect class="table" width="300" height="165" rx="9"/>
+    <path fill="#a36a35" d="M9 0 H291 Q300 0 300 9 V43 H0 V9 Q0 0 9 0"/>
+    <text class="ht" x="150" y="29" text-anchor="middle">LOAN</text>
+    <text class="field" x="18" y="72">loan_id (PK)</text>
+    <text class="field" x="18" y="108">reader_id (FK)</text>
+    <text class="field" x="18" y="143">copy_id (FK)</text>
+  </g>
+
+  <!-- RELATIONSHIPS -->
+  <path class="rel" marker-end="url(#arrow)" d="M345 235 H550"/>
+  <text class="label" x="445" y="222" text-anchor="middle">1 : N</text>
+
+  <path class="rel" marker-end="url(#arrow)" d="M850 265 H1050"/>
+  <text class="label" x="950" y="250" text-anchor="middle">1 : N</text>
+
+  <path class="rel" marker-end="url(#arrow)" d="M195 310 V450 H700 V540"/>
+  <text class="label" x="430" y="438" text-anchor="middle">1 : N</text>
+
+  <path class="rel" marker-end="url(#arrow)" d="M345 620 H550"/>
+  <text class="label" x="445" y="605" text-anchor="middle">1 : N</text>
+
+  <path class="rel" marker-end="url(#arrow)" d="M1200 740 V800"/>
+  <text class="label" x="1245" y="775">1 : N</text>
+
+  <path class="rel" marker-end="url(#arrow)" d="M1350 265 H1380 V775 H1350 V800"/>
+  <text class="label" x="1370" y="530">1 : N</text>
+
+  <text x="700" y="985" text-anchor="middle" font-family="Arial" font-size="15" fill="#46566d">
+    PK — первинний ключ | FK — зовнішній ключ | UNIQUE — унікальне значення
+  </text>
+</svg>
